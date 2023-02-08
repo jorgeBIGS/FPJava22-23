@@ -13,11 +13,34 @@ public class Matematicas {
 	}
 
 	public static List<Integer> elevaAExponente(List<Integer> l, Integer exponente) {
-		return null;
+		List<Integer> result = new ArrayList<>();
+		for (Integer valor : l) {
+			Double nuevoValor = Math.pow(valor, exponente);
+			result.add(nuevoValor.intValue());
+		}
+		return result;
 	}
 
 	public static List<Integer> filtraPrimos(List<Integer> l) {
-		return null;
+		List<Integer> result = new ArrayList<>();
+		for (Integer valor : l) {
+			if (esPrimo(valor)) {
+				result.add(valor);
+			}
+		}
+		return result;
+	}
+
+	private static Boolean esPrimo(Integer n) {
+		Boolean result = true;
+		Double raiz = Math.sqrt(n);
+		for (int i = 2; i < raiz; i++) {
+			if (n % i == 0) {
+				result = false;
+				break;
+			}
+		}
+		return result;
 	}
 
 	public static List<Integer> getPares(List<Integer> valores) {
