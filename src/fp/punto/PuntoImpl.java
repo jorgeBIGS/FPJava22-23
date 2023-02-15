@@ -30,7 +30,7 @@ public class PuntoImpl implements Punto{
 		return x;
 	}
 
-	public Double getDistanciaEuclideaA(Punto referencia) {
+	public Double getDistanciaA(Punto referencia) {
 		Double dx = getX() - referencia.getX();
 		Double dy = getY() - referencia.getY();
 		Double suma = dx * dx + dy * dy;
@@ -38,9 +38,31 @@ public class PuntoImpl implements Punto{
 	}
 
 	public String toString() {
-		return "(" + this.getX() + "," + this.y + ")";
+		return  "(" + this.getX() + "," + this.y + ")";
+	}
+	
+	public boolean equals(Object o) {
+		boolean result = false;
+		
+		if (o instanceof Punto) {
+			Punto p = (Punto) o;
+			result = this.getX().equals(p.getX())
+					&& this.getY().equals(p.getY());
+		}
+		
+		return result;
+	}
+	
+	public int hashCode() {
+		return getX().hashCode() +  31 * getY().hashCode();
 	}
 
 	
-
+	public int compareTo(Punto o) {
+		int cmp = getX().compareTo(o.getX());
+		if (cmp == 0) {
+			cmp = getY().compareTo(o.getY());
+		}
+		return cmp;
+	}
 }
