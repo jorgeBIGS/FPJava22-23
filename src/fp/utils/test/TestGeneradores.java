@@ -1,6 +1,8 @@
-package fp.utils;
+package fp.utils.test;
 
 import java.util.List;
+
+import fp.utils.Generadores;
 
 public class TestGeneradores {
 
